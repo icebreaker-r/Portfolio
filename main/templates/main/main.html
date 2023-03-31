@@ -18,18 +18,22 @@
         <p class="text-head-h1">Меня зовут Абрамов Роман, и я люблю Маяковского</p>
         <p class="text-head-h2">Этот и многие другие факты обо мне вы сможете узнать на этом сайте</p>
         <div class="head-con-btn">
-            <a href="#about_link" class="more">Узнать больше</a>
-            <a href="#contacts_link" class="connection">Связаться со мной</a>
+            <a href="#about_link" class="more" id="more-info">Узнать больше</a>
+            <a href="#contacts_link" class="connection" id="contact">Связаться со мной</a>
         </div>
     </header>
     <main class="main">
 
         <div class="about" id="about_link">
-            <p class="title-about-me" data-aos="fade-down" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500" data-aos-once="true">О себе</p>
+            <p class="title-about-me hide" data-aos="fade-down" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500" data-aos-once="true">О себе</p>
             <div class="content-about">
-                <p class="text-about" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="500" data-aos-once="true">С готовностью берусь за новые проекты и нестандартные задачи. Хорошо работаю в команде, умею разрешать конфликты и споры.
+                <div class="change-about">
+                    <p class="title-about-me" data-aos="fade-down" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500" data-aos-once="true">О себе</p>
+                    <p class="text-about" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="500" data-aos-once="true">С готовностью берусь за новые проекты и нестандартные задачи. Хорошо работаю в команде, умею разрешать конфликты и споры.
                     Планирую развиваться в сфере финансовой аналитики, для чего активно изучаю экономику, статистику и программирование
-                </p>
+                    </p>
+                </div>
+
                 <img src="{% static 'main/img/фото.jpg' %}" class="img-about" data-aos="fade-left" data-aos-offset="500" data-aos-easing="ease-in-sine" data-aos-duration="500" data-aos-once="true">
             </div>
         </div>
@@ -223,9 +227,9 @@
                             <div class="text-title">Призёр конкурса бизнес-проектов, 2022</div>
                         </div>
                         <div class="content-text-activity" id="text-autor">
-                            <p class="text-desc">В рамках тренинга были изучены методы гибкого управления проектами (agile), а также был разработан и представлен проект ресторанного бизнеса.</p>
+                            <p class="text-desc" >В рамках VII Республиканского конкурса бизнес-проектов «Актуальные концепты экономического развития предприятий» был разработан проект компьютерного клуба, занявший 3-е место в направлении “Инновационные дискурсы экономического развития предприятий”</p>
                             <div class="see-sert">
-                                <a href="http://precon.donnuet.ru/ru/630-rezultaty-vii-respublikanskij-konkurs-biznes-proektov-aktualnye-kontsepty-ekonomicheskogo-razvitiya-predpriyatij" class="text-arrow" target="_blank">смотреть сертификат</a>
+                                <a href="http://precon.donnuet.ru/ru/630-rezultaty-vii-respublikanskij-konkurs-biznes-proektov-aktualnye-kontsepty-ekonomicheskogo-razvitiya-predpriyatij" class="text-arrow" target="_blank">смотреть результаты конкурса</a>
                                 <img src="{% static 'main/img/arrow.svg' %}" class="arrow">
                             </div>
                         </div>
@@ -250,6 +254,7 @@
 
 
         </div>
+
 
         <div class="contacts" id="contacts_link">
             <p class="title-about" data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500" data-aos-once="true">Контакты</p>
@@ -293,6 +298,28 @@
     $('.blue-line-2').width(2);
     $('.blue-line-2-2').width(2);
 
+    $('#contact').on('click', function(){
+      let href = $(this).attr('href'), elem = $(document).find(href);
+      if(elem.length > 0) {
+        let posY = elem.eq(0).offset().top;
+        $('html, body').animate({
+          scrollTop: posY
+        }, 2000);
+      }
+      return false;
+    });
+
+    $('#more-info').on('click', function(){
+      let href = $(this).attr('href'), elem = $(document).find(href);
+      if(elem.length > 0) {
+        let posY = elem.eq(0).offset().top;
+        $('html, body').animate({
+          scrollTop: posY - 175
+        }, 1000);
+      }
+      return false;
+    });
+
     $('#seminar').click(function(){
         var h_rec = $('#blue-line-3').height();
 
@@ -326,7 +353,7 @@
             $('#triangle-invest').css("transform","rotate(90deg)");
         }
     });
-
+    $('#yourStyle').circleType({radius: 800});
     $('#search').click(function(){
         var h_rec = $('#blue-line-3').height();
 
@@ -393,6 +420,8 @@
             $('#blue-line-3').height(h_rec);
             $('#triangle-autor').css("transform","rotate(90deg)");
         }
+
+
     });
 
 </script>
