@@ -173,7 +173,7 @@
 
 .text-about {
     margin: 80px 0 0 0;
-    width: 65%;
+    width: 85%;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -190,6 +190,13 @@
     transform: scale(0.7);
     object-fit: cover;
     overflow-y: hidden;
+}
+
+.change-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 90%;
 }
 
 
@@ -665,6 +672,14 @@ a {
     overflow-y: hidden;
 }
 
+#text-autor {
+    height: 185px;
+}
+
+#text-invest {
+    height: 185px;
+}
+
 .blue-line-3 {
     padding: 0 0 0 2px ;
     height: 900px;
@@ -714,15 +729,16 @@ a {
 }
 
 .document {
-    height: 20px;
-    width: 20px;
+    height: 20px !important;
+    width: 20px !important;
     margin: 4px 10px 7px 7px;
 }
 
 .document_1 {
-    height: 20px;
-    width: 20px;
+    height: 20px !important;
+    width: 20px !important;
     margin: 4px 10px 7px 7px;
+    overflow-x: visible;
 }
 
 .text-title {
